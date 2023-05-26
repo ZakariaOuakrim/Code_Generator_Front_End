@@ -1,7 +1,6 @@
 import { SettingsComponent } from './settings/settings.component';
 import { MyClassComponent } from './my-class/my-class.component';
 import { AdminComponent } from './admin/admin.component';
-import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NgModule, Component } from '@angular/core';

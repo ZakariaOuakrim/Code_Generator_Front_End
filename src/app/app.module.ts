@@ -12,7 +12,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { HomeComponent } from './home/home.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -59,7 +58,6 @@ import { CodeDialogComponent } from './code-dialog/code-dialog.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
     SignUpComponent,
     ProfileComponent,
     MyClassComponent,

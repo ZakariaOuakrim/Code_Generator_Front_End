@@ -23,14 +23,11 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { DashComponent } from './dash/dash.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
-import { CardComponent } from './card/card.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
@@ -40,7 +37,6 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import { TestingDeleteComponent } from './testing-delete/testing-delete.component';
 import { ListClassesComponent } from './list-classes/list-classes.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ListProjectsComponent } from './list-projects/list-projects.component';
@@ -68,13 +64,9 @@ import { CodeDialogComponent } from './code-dialog/code-dialog.component';
     ProfileComponent,
     MyClassComponent,
     NavComponent,
-    DashComponent,
-    CardComponent,
-    HeaderComponent,
     UserComponent,
     AdminComponent,
     ProjectComponent,
-    TestingDeleteComponent,
     ListClassesComponent,
     ListProjectsComponent,
     ConfirmationDialogComponent,

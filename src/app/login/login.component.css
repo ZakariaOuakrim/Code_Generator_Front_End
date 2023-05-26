@@ -8,7 +8,7 @@
     width: 100%;
 }
 .mainDiv{
-    background: url("assets/background_image.jpg");
+    background: url("/assets/background_image.jpg");
     background-repeat: no-repeat;
     background-origin: content-box;
     background-attachment: fixed;

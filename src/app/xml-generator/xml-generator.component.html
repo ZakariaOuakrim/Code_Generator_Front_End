@@ -1,0 +1,38 @@
+<app-nav></app-nav>
+<mat-card class="cardUpload">
+  <form (ngSubmit)="uploadFile()" enctype="multipart/form-data">
+    <div class="textUpload">
+      <label for="fileName" class="file-label">Choose an XML file</label>
+      <input id="fileUpload" type="file" multiple accept=".xml" (change)="onFileSelected($event)">
+    </div>
+    <button id="uploadBtn" mat-raised-button type="submit">Upload</button>
+    <p *ngIf="error">{{error}}</p>
+  </form>
+</mat-card>
+<mat-card *ngIf="classes" class="tableCard">
+  <mat-card-header>
+    <mat-card-title>List of classes generated</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <table class="table table-striped">
+      <thead>
+        <th>Class Name</th>
+        <th>Actions</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let class of classes">
+          <td>{{class.className}}</td>
+          <td><button (click)="openCodeDialog(class)" mat-icon-button color="accent">
+              <mat-icon>remove_red_eye</mat-icon>
+            </button>
+            <button (click)="downloadClass(class)" mat-icon-button color="primary">
+              <mat-icon>download</mat-icon>
+            </button>
+          </td>
+
+        </tr>
+
+      </tbody>
+    </table>
+  </mat-card-content>
+</mat-card>

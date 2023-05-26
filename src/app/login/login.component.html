@@ -1,0 +1,27 @@
+<div fxLayoutAlign="center center" fxFlexFill class="mainDiv">
+  <mat-card fxFlex="25">
+    <mat-toolbar color="primary">Login Page</mat-toolbar>
+    <mat-card-content>
+      <form [formGroup]="form"  #loginForm="ngForm" (ngSubmit)="login(loginForm)" class="form-group" fxLayout="column" >
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input  formControlName="email" class="form-control"  matInput type="email" Initialize="Enter your email" required>
+          <mat-error *ngIf="form.controls.email.hasError('required')"> Please enter your email</mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Password </mat-label>
+          <input  formControlName="password" class="form-control"  matInput [type]="hide ? 'password' : 'text'"  Initialize="Enter your password" required>
+          <mat-error *ngIf="form.controls.email.hasError('required')"> Please enter your password</mat-error>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        <a href="#" id="password" >Forgot password?</a>
+        <button type="submit" mat-raised-button  [disabled]="!form.valid">Login</button>
+        <mat-error id="errorMessage" *ngIf="!trueCredentials">Invalid Email</mat-error>
+        <mat-error id="errorMessage" *ngIf="accountNotVerified">Wrong password <br>or your account is not verified yet please check your email</mat-error>
+        <a [routerLink]= "['/signUp']" id="signup">Sign up</a>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

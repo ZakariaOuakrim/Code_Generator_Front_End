@@ -1,0 +1,206 @@
+<app-nav></app-nav>
+<div class="DivCenter">
+  <!--My from is here-->
+  <form [formGroup]="form" #classForm="ngForm" (ngSubmit)="modifyClass(classForm)">
+    <mat-accordion>
+      <p>
+        <mat-toolbar color="basic">
+          <span>Create a new Class </span>
+        </mat-toolbar>
+      </p>
+      <mat-form-field class="example-full-width">
+        <mat-label>Package name</mat-label>
+        <input formControlName="packageName" matInput placeholder="Name of the package">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Class Name</mat-label>
+        <input matInput formControlName="className" placeholder="Enter the name of the class that you want to create">
+      </mat-form-field>
+      <mat-radio-group formControlName="classType" color="primary"  name="radioButton"
+        class="example-radio-group">
+        <section class="example-section">
+          <mat-radio-button value=1>Entity</mat-radio-button>
+          <mat-radio-button value="2">Component</mat-radio-button>
+          <mat-radio-button value="3">Controller</mat-radio-button>
+          <mat-radio-button value="4">Service</mat-radio-button>
+          <mat-radio-button value="5">Configuration</mat-radio-button>
+        </section>
+      </mat-radio-group>
+      <mat-checkbox formControlName="isGenerateService"  value="Service" checked>Generate the
+        Service
+      </mat-checkbox>
+      <mat-checkbox formControlName="isGenerateRepository"  checked>Generate the Repository
+      </mat-checkbox>
+      <mat-checkbox formControlName="isGenerateController"  checked>Generate the Controller
+      </mat-checkbox>
+      <div>
+        <mat-form-field  class="example-full-width">
+          <mat-label>Table name</mat-label>
+          <input formControlName="tableName" matInput placeholder="Name of the table in your database">
+        </mat-form-field>
+        <mat-form-field  class="example-full-width">
+          <mat-label>Request Mapping url</mat-label>
+          <input formControlName="requestMappingURL" matInput
+            placeholder="if you want you can add a request mapping url to your controller">
+        </mat-form-field>
+      </div>
+      <mat-expansion-panel class="divProperties">
+        <mat-expansion-panel-header>
+          <mat-panel-title color="primary">Properties</mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="example-button-container">
+          <div class="left_text">
+            <mat-checkbox formControlName="isIdGenerate" 
+              name="isIdSelected">Id</mat-checkbox>
+
+            <mat-checkbox formControlName="isGeneratedValue"
+             class="generatedInputs" name="GeneratedValue">GeneratedValue</mat-checkbox>
+            <mat-form-field >
+              <mat-label>Generation Type:</mat-label>
+              <mat-select formControlName="generatedType" >
+                <mat-option name="AUTO" value="AUTO">AUTO</mat-option>
+                <mat-option value="IDENTITY">IDENTITY</mat-option>
+                <mat-option value="SEQUENCE">SEQUENCE</mat-option>
+                <mat-option value="TABLE">TABLE</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <ng-container formArrayName="properties">
+
+            <ng-container >
+              <div >
+                <div class="left_text">
+                  <mat-checkbox formControlName="isAutowired"
+                   
+                    name="isIdSelected">Autowired</mat-checkbox>
+                </div>
+                <mat-form-field class="generatedInputs">
+                  <mat-label>Property access: </mat-label>
+                  <mat-select formControlName="accessibilityType">
+                    <mat-option value="private">private</mat-option>
+                    <mat-option value="public">public</mat-option>
+                    <mat-option value="protected">protected</mat-option>
+                    <mat-option value="default">default</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field class="generatedInputs">
+                  <mat-label>Property Type</mat-label>
+                  <input formControlName="type" matInput placeholder="Property type">
+                </mat-form-field>
+                <mat-form-field class="generatedInputs">
+                  <mat-label>Property Name</mat-label>
+                  <input formControlName="name" matInput placeholder="Property Name">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Property Value</mat-label>
+                  <input formControlName="value" matInput placeholder="Initialize your property">
+                </mat-form-field>
+                <div id="Center_text">
+                  <mat-form-field>
+                    <mat-label>Column name</mat-label>
+                    <input formControlName="columnName" matInput placeholder="DB column name">
+                  </mat-form-field>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+
+          <button mat-mini-fab color="basic" type="button" >
+            <mat-icon>plus_one</mat-icon>
+          </button>
+          <button mat-mini-fab color="basic" type="button">
+            <mat-icon>delete_outline</mat-icon>
+          </button>
+        </div>
+      </mat-expansion-panel>
+
+      <!------------------------Methods are getting add right here------------------------>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Methods</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div>
+          <ng-container formArrayName="methods">
+            <ng-container >
+              <div>
+                <div>
+                  <mat-radio-group formControlName="requestMappingType" class="example-radio-group">
+                    <section class="example-section">
+                      <mat-radio-button value="Post">Post</mat-radio-button>
+                      <mat-radio-button value="Get">Get</mat-radio-button>
+                      <mat-radio-button value="Put">Put</mat-radio-button>
+                      <mat-radio-button value="Delete">Delete</mat-radio-button>
+                    </section>
+                  </mat-radio-group>
+                </div>
+                <div>
+                  <mat-form-field class="generatedInputs">
+                    <mat-label>Method visibility: </mat-label>
+                    <mat-select formControlName="visibility">
+                      <mat-option value="private">private</mat-option>
+                      <mat-option value="public">public</mat-option>
+                      <mat-option value="protected">protected</mat-option>
+                      <mat-option value="default">default</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field class="generatedInputs">
+                    <mat-label>Method type</mat-label>
+                    <input formControlName="type" matInput placeholder="Method type">
+                  </mat-form-field>
+                  <mat-form-field class="generatedInputs">
+                    <mat-label>Method Name</mat-label>
+                    <input formControlName="name" matInput placeholder="Method Name">
+                  </mat-form-field>
+                </div>
+                <div class="right_text">
+                  <button mat-icon-button color="warn" type="button" >
+                    <mat-icon>add</mat-icon>
+                  </button>
+                  <button mat-icon-button color="warn" type="button" >
+                    <mat-icon>clear</mat-icon>
+                  </button>
+                </div>
+                <ng-container formArrayName="parameters">
+                  <ng-container>
+                    <div >
+                      <mat-form-field class="generatedInputs">
+                        <mat-label>Parameter type</mat-label>
+                        <input formControlName="type" matInput placeholder="Parameter type">
+                      </mat-form-field>
+                      <mat-form-field class="generatedInputs">
+                        <mat-label>Parameter name</mat-label>
+                        <input formControlName="name" matInput placeholder="Parameter name">
+                      </mat-form-field>
+                    </div>
+                  </ng-container>
+                </ng-container>
+                <div>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Method Body</mat-label>
+                    <textarea formControlName="body" matInput placeholder="Add your body's method here"></textarea>
+                  </mat-form-field>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+        <!--Parameters part-->
+        <button mat-mini-fab color="basic" type="button" >
+          <mat-icon>plus_one</mat-icon>
+        </button>
+        <button mat-mini-fab color="basic" type="button" >
+          <mat-icon>delete_outline</mat-icon>
+        </button>
+
+      </mat-expansion-panel>
+      <button class="CreateButton" mat-stroked-button type="submit">Create Class</button>
+    </mat-accordion>
+
+
+
+  </form>
+
+  <p style="color:red;"></p>
+</div>

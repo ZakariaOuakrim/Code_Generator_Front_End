@@ -1,0 +1,37 @@
+<app-nav></app-nav>
+<h1 class="titlePage">List of packages and classes</h1>
+<div *ngIf="!doesListHaveClasses">
+    <p class="noClassesMsg">You don't have any classes yet. Get started by creating a class in your project!</p>
+</div>
+<div class="card my-5 divList">
+    <div *ngFor="let package of packageNames" class="card-body">
+        <mat-expansion-panel class="matExpansionPanel">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="packageName" color="primary">{{package}}</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngFor="let class of classes">
+                <div *ngIf="class.packageName==package">
+                    <div class="divClasses">
+                        <mat-card>
+                            <mat-card-content class="class_name">{{class.className}}
+                                <div class="buttons">
+                                    <button *ngIf="class.classType!='Service_GEN' && class.classType!='Controller_GEN' && class.classType!='JPA_INTERFACE' " [routerLink]="['/classes/modify/'+projectId+'/'+class.packageName+'/'+class.id]" mat-stroked-button color="accent"> Modify</button>
+                                    <button (click)="openConfirmationToDelete(class.id)" mat-stroked-button color="warn">Delete</button>
+                                    <button  (click)="downloadClass(class)" mat-stroked-button
+                                        color="primary"> Download</button>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <button *ngIf="!isProjectIdZero" [routerLink]="['/classes/create/'+projectId+'/'+package+'/ ']" type="button" mat-button color="primary">Add a class inside this package</button>
+            </div>
+        </mat-expansion-panel>
+    </div>
+    <div style="text-align: center; margin-top:10px;">
+        <button mat-raised-button *ngIf="!isProjectIdZero" color="primary" [routerLink]="['/classes/create/'+projectId+'/'+groupId+'/ ']" type="button">create a new class within a new
+            package</button>
+    </div>
+</div>

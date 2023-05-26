@@ -1,0 +1,79 @@
+<mat-card class="mainCard">
+    <mat-stepper [linear]="isLinear" #stepper style="height: 300px;">
+        <mat-step [stepControl]="formControlOne">
+            <form [formGroup]="formControlOne" class="inputDiv">
+                <ng-template matStepLabel>Fill out your UserName</ng-template>
+                <div class="divOfMatField">
+                    <mat-form-field>
+                        <mat-label>UserName</mat-label>
+                        <input matInput placeholder="Please enter your userName" formControlName="userName" required>
+                        <mat-error *ngIf="formControlOne.controls.userName.hasError('required')"> Please enter a
+                            username
+                            that
+                            will identify you</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="btnContainer">
+                    <button class="btn" [routerLink]= "['/login']" mat-button matStepperNext>Back to login page</button>
+                    <button class="btn" mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="formControlTwo" label="Fill your email">
+            <form [formGroup]="formControlTwo">
+                <div class="divOfMatField">
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input type="email" matInput formControlName="email" placeholder="Enter your email" required>
+                        <mat-error *ngIf="formControlTwo.controls.email.hasError('required')"> Please enter you email
+                            <mat-error *ngIf="formControlTwo.controls.email.hasError('email')">Please enter a valid
+                                email address</mat-error>
+
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="btnContainer">
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="formControlTree" label="Fill out your password">
+            <form [formGroup]="formControlTree">
+                <div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+                    <mat-form-field style="margin-top: 0px;">
+                        <mat-label>Password</mat-label>
+                        <input matInput formControlName="password" placeholder="Enter your password" required>
+                        <mat-error *ngIf="formControlTree.controls.password.hasError('required')"> Please enter your
+                            password
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field style="margin-top: 0px;">
+                        <mat-label>Confirm Password</mat-label>
+                        <input matInput formControlName="confirmPassword" placeholder="Confirm your password" required>
+                        <mat-error *ngIf="formControlTree.controls.confirmPassword.hasError('required')"> Please confirm
+                            your
+                            password</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="btnContainer" style="margin-top: -10px;">
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button color="primary" matStepperNext
+                        [disabled]="(formControlTree.controls.password.value!==formControlTree.controls.confirmPassword.value)"
+                        (click)="signUp()">Sign Up</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <div class="textContainer">
+                <p>You are now done.</p>
+                <p>Please check your email to activate your account</p>
+                <a href="https://gmail.com" target="_blank">check email</a>
+                <div class="btnContainer">
+                    <button [routerLink]= "['/login']" mat-button matStepperPrevious>Back to login page</button>
+                </div>
+            </div>
+        </mat-step>
+    </mat-stepper>
+</mat-card>

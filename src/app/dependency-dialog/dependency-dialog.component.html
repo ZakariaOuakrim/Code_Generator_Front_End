@@ -1,0 +1,24 @@
+<div class="dialog">
+    <p>{{data}}</p>
+    <form [formGroup]="form" #classForm="ngForm" (ngSubmit)="addNewDependency(classForm)">
+        <h1 mat-dialog-title>Add a new Dependency</h1>
+        <div mat-dialog-content class="inputs">
+            <mat-form-field>
+                <mat-label>Group Id</mat-label>
+                <input formControlName="groupId" matInput placeholder="Ex: org.springframework.boot">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Artifact Id</mat-label>
+                <input formControlName="artifactId" matInput placeholder="Ex: spring-boot-starter-data-jpa">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Version</mat-label>
+                <input formControlName="version" matInput placeholder="Ex: 3.0.6">
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions class="buttons">
+            <button type="button" (click)="onClose()" mat-button>Cancel</button>
+            <button  mat-button cdkFocusInitial>{{mode}} Dependency</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,31 @@
+.container {
+    padding-top: 50px;
+    padding-bottom: 10px;
+    color: #405065;
+  }
+  
+  .search-hero {
+    max-width: 500px;
+    padding-bottom: 50px;
+    margin:auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .form-control {
+    box-shadow: 0 10px 40px 0 #B0C1D9;
+    
+  }
+  .form-control::placeholder  {
+    font-family: FontAwesome;
+  }
+  .addDependencyBtn{
+    margin-left: 12px;
+    width: 35px;
+    height: 35px;
+  }
+  .addDependencyToProjectBtn{
+    width: 30px;
+    height: 30px;
+  }

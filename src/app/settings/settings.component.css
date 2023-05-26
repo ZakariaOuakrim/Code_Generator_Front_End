@@ -1,0 +1,24 @@
+.matCardSettings{
+    display: flex;
+    flex-direction: column;
+    margin:20px;
+    justify-content: space-evenly;
+}
+
+.text{
+    margin-top: 20px;
+    margin-right: 40px;
+    font-size: 21px;
+}
+
+.choiceOfDB{
+    display: flex;
+    margin-left: 150px;
+}
+
+.option{
+    width: 350px;
+}
+.btnSeeFile{
+    margin-top: 12px;
+}

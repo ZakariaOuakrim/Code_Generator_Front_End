@@ -1,0 +1,54 @@
+.example-full-width {
+    width: 100%;
+}
+
+.DivCenter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.rightChoice{
+  margin-right: 40px;
+}
+
+.CreateButton{
+  margin-top: 20px;
+  margin-bottom: 20px;  
+}
+.example-margin {
+  margin-bottom: 30px;
+}
+.generatedInputs{
+  margin-right: 10px;
+}
+
+.left_text{
+  text-align: left;
+}
+.right_text{
+  text-align: right;
+}
+#Center_text{
+  text-align: center;
+}
+
+.titles_properties_and_methods{
+  font-size: 20px;
+}
+
+.divProperties{
+  /*margin-top: 5px;
+  margin-bottom: 20px;
+  width: 1000px;*/
+}

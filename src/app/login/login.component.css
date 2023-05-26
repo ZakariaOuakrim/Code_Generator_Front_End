@@ -1,0 +1,37 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+.example-full-width {
+    width: 100%;
+}
+.mainDiv{
+    background: url("assets/background_image.jpg");
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+.mainDiv mat-toolbar{
+    margin-bottom: 20px;
+}
+
+a{
+    text-decoration: none;
+    padding-bottom: 10px;
+}
+#password{
+    text-align: right;
+}
+#signup{
+    text-align: center;
+    margin-top:20px ;
+}  
+#errorMessage{
+    text-align: center;
+    
+}
+
+

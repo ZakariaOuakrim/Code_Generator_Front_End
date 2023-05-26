@@ -1,0 +1,38 @@
+<app-nav></app-nav>
+<div class="DivCenter">
+    <h1 class="title">Create a new project</h1>
+    <form [formGroup]="form" #classForm="ngForm" (ngSubmit)="createANewProject(classForm)" class="example-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>ArtifactId</mat-label>
+            <input formControlName="artifactId" matInput placeholder="insert the ArtifactId or the project Name" required>
+            <mat-error *ngIf="form.controls.artifactId.hasError('required')" >ArtifactId is required</mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>GroupId</mat-label>
+            <input formControlName="groupId" matInput placeholder="insert the groupId">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Version</mat-label>
+            <input formControlName="version" matInput placeholder="insert the groupId">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Model Version</mat-label>
+            <input formControlName="modelVersion" matInput placeholder="insert the groupId">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Project description</mat-label>
+            <textarea formControlName="description" matInput placeholder="Add a description about a project"></textarea>
+        </mat-form-field>
+
+        <div>
+            <mat-radio-group formControlName="projectVersion" aria-label="Select an option">
+                <mat-radio-button value="1">Jar</mat-radio-button>
+                <mat-radio-button value="2">War</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <button mat-raised-button [disabled]="!form.valid" color="primary">Create</button>
+    </form>
+</div>

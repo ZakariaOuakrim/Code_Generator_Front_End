@@ -1,0 +1,139 @@
+.example-card {
+  max-width: 300px;
+
+}
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.masterDiv{
+  display: flex; 
+  flex-direction: column;
+  margin:20px;
+  justify-content: space-evenly;
+}
+
+.card{
+  padding: 20px;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.right_buttons{
+  display: flex;
+  justify-content: right;
+}
+.createProjectBtn{
+  text-align: center;
+  margin: 20px;
+}
+
+.button {
+  margin-top: 4px;
+  margin-right: 4px;
+  position: relative;
+  width: 105px;
+  height: 35px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px solid #e2e2e2;
+  background-color: #ffffff;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.button, .button__icon, .button__text {
+  transition: all 0.3s;
+}
+
+.button .button__text {
+  transform: translateX(12px);
+  color: rgb(22, 72, 190);
+  font-weight: 500;
+}
+
+.button .button__icon {
+  position: absolute;
+  transform: translateX(100px);
+  height: 100%;
+  width: 80px;
+  background-color: rgb(22, 72, 190);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button .svg {
+  transform: translateX(-25px);
+  width: 20px;
+  fill: #fff;
+}
+
+.button:hover {
+  background: rgb(22, 72, 190);
+}
+
+.button:hover .button__text {
+  color: transparent;
+}
+
+.button:hover .button__icon {
+  width: 148px;
+  transform: translateX(0);
+}
+
+
+.viewbtn .button__text{
+  color: rgb(44, 164, 78);
+}
+.viewbtn:hover{
+  background-color: rgb(22, 190, 28);
+
+}
+.viewbtn mat-icon{
+  color: white;
+  transform: translateX(-25px);
+}
+
+.dependencybtn .button__text{
+  color: rgb(230, 217, 76);
+  transform: translateX(5px);
+}
+.dependencybtn:hover{
+  background-color: rgb(230, 217, 76);
+}
+.dependencybtn mat-icon{
+  color: white;
+  transform: translateX(-25px);
+}
+.deletebtn .button__text{
+  color: rgb(230, 76, 76);
+  transform: translateX(25px);
+
+}
+.deletebtn:hover{
+  background-color: rgb(230, 76, 76);
+}
+.deletebtn mat-icon{
+  color: white;
+  transform: translateX(-25px);
+
+}
+
+.noProjectsMsg{
+  text-align: center;
+  margin: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  color: rgb(22, 72, 190);
+}
+
+
+
+

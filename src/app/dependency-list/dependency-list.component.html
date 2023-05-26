@@ -1,0 +1,42 @@
+<nav>
+  <app-nav></app-nav>
+</nav>
+<div class="container text-center">
+</div>
+<div class="container">
+  <div class="row">
+    <div class="search-hero">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+        placeholder="&#61442;  Start searching for a hero by id or name or country">
+      <button  (click)="openDependencyDialog()" class="addDependencyBtn" mat-mini-fab color="warn"
+        aria-label="Example icon button with a filter list icon">
+        <mat-icon>library_add</mat-icon>
+      </button>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Group Id</th>
+          <th>Artifact Id</th>
+          <th>Version</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let depend of dependencies | filter:searchText">
+          <td>{{depend.id}}</td>
+          <td>{{depend.groupId}}</td>
+          <td>{{depend.artifactId}}</td>
+          <td>{{depend.version}}</td>
+          <td><button  (click)="openModifyDialog(depend.id)" mat-icon-button >
+              <mat-icon>update</mat-icon>
+            </button>
+            <button  (click)="openConfirmationToDelete(depend.id)" mat-icon-button color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

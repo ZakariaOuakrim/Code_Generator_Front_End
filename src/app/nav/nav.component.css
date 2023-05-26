@@ -1,0 +1,25 @@
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.spacer{
+  flex: 1 1 auto;
+}
+
+.mat-toolbar button.active {
+  background-color: #fff;
+  color: #333;
+}
+
+.mat-toolbar button.active:hover {
+  background-color: #ddd;
+  color: #333;
+}
+.fixed-navBar{
+  position: fixed;
+  top: 1;
+  width: 100%;
+  z-index: 1;
+}

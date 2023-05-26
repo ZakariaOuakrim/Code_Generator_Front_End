@@ -1,0 +1,141 @@
+.topLevelPage {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 10 10 15px 15px;
+
+}
+
+.leftPageText {
+    flex: 1;
+    justify-content: left;
+    padding-left: 80px;
+    font-size: 44px;
+}
+
+.leftPageText p {
+    margin-bottom: 35px;
+}
+
+.descriptionOfHeader {
+    font-size: 32px;
+    margin: 0px;
+    color: #606060;
+
+}
+
+.paragraph {
+    line-height: normal;
+}
+
+.card {
+    width: 240px;
+    height: 254px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card:hover {
+    border: 1px solid black;
+    transform: scale(1.05);
+  }
+  
+
+.tools {
+    display: flex;
+    align-items: center;
+    padding: 9px;
+}
+
+.circle {
+    padding: 0 4px;
+}
+
+.box {
+    display: inline-block;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    border-radius: 50%;
+}
+
+.cardTitle {
+    text-align: center;
+    margin: 0px;
+    font-size: 18px;
+    color: #4934C3;
+    padding-bottom: 8px;
+}
+
+.cardDescription{
+    text-align: center;  
+    font-size: 13px;
+    line-height: normal;
+}
+
+.headerBlue{
+    text-align: center;
+    font-size: 28px;
+    padding-top: 35px;
+    color: #4934C3;
+}
+
+.javaAndSpringCard{
+    background-color: #DEEFF7;
+    height: 380px;
+    width: 330px;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+
+.javaCardText{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    inline-size: 12em;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.springBootText{
+    margin-top: -25px;
+}
+
+
+.fourthPage{
+    margin-top: 220px;
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.fourthPageHeader{
+    color: #4934C3;
+    inline-size: 13em;
+    line-height: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.fourthPageDescription{
+    color: black;
+    inline-size: 20 em;
+    line-height: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding-top: 40px
+  
+}
+.footerIV{
+    background-color: #6B6B6B;
+    display: flex;
+    justify-content: center;
+}
+
+.footerText{
+    color: #FFFFFF;
+    font-family: 'Courier New', Courier, monospace;
+}
+

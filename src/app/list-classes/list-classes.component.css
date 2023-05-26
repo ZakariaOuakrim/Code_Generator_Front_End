@@ -1,0 +1,52 @@
+
+.small-button{
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+}
+.buttons{
+    text-align: right;
+    margin-right: 10px;
+}
+.buttons button{
+    margin-left: 9px;
+}
+.divClasses mat-card{
+    margin-bottom: 5px;
+}
+.class_name{
+    font-size: 15px;
+}
+
+.packageName{
+    font-size: 19px;
+    color: #301254;
+}
+
+.divList{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.matExpansionPanel{
+    width: 900px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+.titlePage{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 30px;
+}
+
+.noClassesMsg{
+    text-align: center;
+    margin: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(22, 72, 190);
+  }
+  

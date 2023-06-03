@@ -52,6 +52,8 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { SettingsComponent } from './settings/settings.component';
 import { XmlGeneratorComponent } from './xml-generator/xml-generator.component';
 import { CodeDialogComponent } from './code-dialog/code-dialog.component';
+import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
+import { ModifyProjectComponent } from './modify-project/modify-project.component';
 
 
 @NgModule({
@@ -76,6 +78,8 @@ import { CodeDialogComponent } from './code-dialog/code-dialog.component';
     SettingsComponent,
     XmlGeneratorComponent,
     CodeDialogComponent,
+    PasswordRecoveryComponent,
+    ModifyProjectComponent,
     
     
     

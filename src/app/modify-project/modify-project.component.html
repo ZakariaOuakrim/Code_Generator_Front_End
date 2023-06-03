@@ -1,0 +1,37 @@
+<div >
+    <form [formGroup]="form" #classForm="ngForm" (ngSubmit)="modifyProject(classForm)">
+        <h1 mat-dialog-title>Modify Project</h1>
+        <div mat-dialog-content class="inputs">
+            <mat-form-field>
+                <mat-label>Artifact Id</mat-label>
+                <input formControlName="artifactId" matInput placeholder="Ex: Project">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Group Id</mat-label>
+                <input formControlName="groupId" matInput placeholder="Ex: com.example">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Version</mat-label>
+                <input formControlName="version" matInput placeholder="Ex: 1.0.0">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Model version</mat-label>
+                <input formControlName="modelVersion" matInput placeholder="Ex: 4.0.0">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <input formControlName="description" matInput >
+            </mat-form-field>
+        </div>
+        <div style="text-align: center;">
+            <mat-radio-group formControlName="projectVersion" aria-label="Select an option">
+                <mat-radio-button value="jar">Jar</mat-radio-button>
+                <mat-radio-button value="war">War</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div mat-dialog-actions class="buttons">
+            <button type="button" (click)="onClose()" mat-button>Cancel</button>
+            <button mat-button color="primary" cdkFocusInitial> Modify Project</button>
+        </div>
+    </form>
+</div>

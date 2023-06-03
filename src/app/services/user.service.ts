@@ -53,6 +53,15 @@ export class UserService {
     return this.http.post(this.baseUrl+"/register",_user,{headers:this.requestHeader});
   }
 
+  public getUser(email:string){
+    return this.http.get<User>(this.baseUrl+"/getUser/"+email,{headers:this.requestHeader});
+  }
+
+  public userForgotPassword(_email:string){
+    return this.http.put(this.baseUrl+"/forgotPassword/"+_email,{headers:this.requestHeader});
+  }
+  
+
 
 
 }

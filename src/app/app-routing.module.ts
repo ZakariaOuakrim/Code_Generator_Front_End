@@ -38,7 +38,7 @@ const routes: Routes = [
       {path:'modifyClass/:projectId/:id',component:ModifyClassComponent , canActivate:[AuthGardService]},
       {path:'listOfDependencies',component:DependencyListComponent , canActivate:[AuthGardService]},
       {path:'ListDependenciesProject/:id',component:ListDependenciesProjectComponent , canActivate:[AuthGardService]},
-      {path:'verifyAccount/:email',component:VerifyAccountComponent, canActivate:[AuthGardService]},
+      {path:'verifyAccount/:email',component:VerifyAccountComponent},
       {path:'settings',component:SettingsComponent , canActivate:[AuthGardService]},
       {path:'uploadXmlFile',component:XmlGeneratorComponent , canActivate:[AuthGardService]}
     ];

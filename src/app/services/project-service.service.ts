@@ -33,9 +33,9 @@ export class ProjectService {
     return this.http.get<Project[]>(this.baseUrl + "/getAllProjects/" + email, { headers: this.headers });
   }
 
-  public generateProject(project: Project) {
+  public generateProject(project: Project,email:string) {
     const headers = new HttpHeaders().append('Accept', 'application/octet-stream');
-    return this.http.post(this.baseUrl + "/downloadProject", project, { headers, responseType: 'blob' })
+    return this.http.post(this.baseUrl + "/downloadProject/"+email, project, { headers, responseType: 'blob' })
   }
   public addDependencyToProject(projectId: number, dependencyId: number) {
     return this.http.post(this.baseUrl + "/addDependencyToProject/" + projectId, dependencyId, { headers: this.requestHeader });
@@ -47,5 +47,12 @@ export class ProjectService {
   public deleteProject(projectId:number){
     return this.http.delete(this.baseUrl+"/deleteProject/"+projectId, { headers: this.requestHeader })
   }
+  public getProjectById(projectId:number){
+    return this.http.get<Project>(this.baseUrl+"/getProjectById/"+projectId, { headers: this.requestHeader });
+  }
+  public modifyProject(projectId:number,project:any){
+    return this.http.put(this.baseUrl+"/modifyProject/"+projectId,project, { headers: this.requestHeader });
+  }
+
 
 }

@@ -18,5 +18,5 @@ export class Class{
     requestMappingURL!:string;
     projectId!:number;
     mode!:string;
-
+    isEmbeddedId!:boolean;
 }

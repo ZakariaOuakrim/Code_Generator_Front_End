@@ -9,4 +9,5 @@ export class Project{
     projectVersion!:string;
     description!:string;
     dependencies!:Dependency[];
+    
 }

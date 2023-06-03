@@ -1,0 +1,21 @@
+.userCard{
+    width: 400px;
+    align-items: center;
+}
+.mainDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 70px;
+}
+.cardContent{
+    display:flex;
+    align-items: left; 
+    flex-direction: column;
+}
+.mainPoints{
+    text-align: left;  
+    margin-top: 10px; 
+
+}

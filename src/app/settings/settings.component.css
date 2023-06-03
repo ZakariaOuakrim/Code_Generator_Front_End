@@ -22,3 +22,22 @@
 .btnSeeFile{
     margin-top: 12px;
 }
+
+.saveBtn{
+    display: flex;
+    justify-content: center;
+}
+
+.inputsDiv{
+    display: flex;
+    flex-direction: column;
+    
+}
+.input{
+    margin-top: 5px;
+    margin-left: 40px;
+    width: 400px;
+}
+.bottomLeftCard{
+    width: 600px;
+}

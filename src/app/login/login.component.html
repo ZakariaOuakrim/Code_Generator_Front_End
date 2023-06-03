@@ -16,10 +16,10 @@
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
         </mat-form-field>
-        <a href="#" id="password" >Forgot password?</a>
+        <a  href="#" id="password" >Forgot password?</a>
         <button type="submit" mat-raised-button  [disabled]="!form.valid">Login</button>
-        <mat-error id="errorMessage" *ngIf="!trueCredentials">Invalid Email</mat-error>
-        <mat-error id="errorMessage" *ngIf="accountNotVerified">Wrong password <br>or your account is not verified yet please check your email</mat-error>
+        <mat-error id="errorMessage" *ngIf="!trueCredentials">Invalid credentials</mat-error>
+        <mat-error id="errorMessage" *ngIf="accountNotVerified">your account is not verified yet please check your email</mat-error>
         <a [routerLink]= "['/signUp']" id="signup">Sign up</a>
       </form>
     </mat-card-content>

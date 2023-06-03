@@ -1,3 +1,4 @@
+import { ModifyProjectComponent } from './../modify-project/modify-project.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DataPassingService } from './../services/data-passing.service';
@@ -18,6 +19,7 @@ export class ListProjectsComponent implements OnInit{
   constructor(private dialog:MatDialog,private route:Router,private dataPassingService:DataPassingService,private projectService:ProjectService,private userAuthService:UserAuthService) { }
   isUserAdmin:boolean=false;
   doesListHaveProjects:boolean=true;
+  loadingDownload:boolean=false;
   ngOnInit(): void {
     if(!this.userAuthService.isLoggedIn() ){
       this.route.navigate(['login']);
@@ -43,8 +45,19 @@ export class ListProjectsComponent implements OnInit{
 
   }
   public downloadProject(project:Project){
-    this.projectService.generateProject(project).subscribe((blob:Blob)=>{
-      saveAs(blob,project.artifactId);
+    this.loadingDownload=true;
+    this.projectService.generateProject(project,this.userAuthService.getEmail() || "").subscribe((response:any)=>{
+      const blob = new Blob([response], { type: 'application/octet-stream' });
+
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.download = project.artifactId + '.zip';
+  
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      this.loadingDownload=false;
+
     })
   }
   setGroupId(groupId:string){
@@ -53,20 +66,25 @@ export class ListProjectsComponent implements OnInit{
 
   public deleteProject(projectId:number){
     this.projectService.deleteProject(projectId).subscribe(
-      (result:any)=>{
+      (response:any)=>{
         this.ngOnInit();
       }
     );
   }
-  openConfirmationToDelete(id: number) {
+  openConfirmationToDelete(projectId: number) {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-      data: { projectId: id }
+      data: projectId
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.deleteProject(id);
+        this.deleteProject(projectId);
       }
+    });
+  }
+  modifyProject(projectId:number){
+    const dialogRed = this.dialog.open(ModifyProjectComponent,{
+      data:projectId
     });
   }
 

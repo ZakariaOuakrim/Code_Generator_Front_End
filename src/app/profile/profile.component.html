@@ -1,1 +1,35 @@
-<nav><app-nav></app-nav></nav>
+<nav>
+    <app-nav></app-nav>
+</nav>
+<div class="mainDiv">
+    <mat-card class="userCard">
+        <mat-toolbar style="text-align: center;" color="primary"> Account {{userName}}</mat-toolbar>
+        <mat-card-content class="cardContent">
+            <mat-card style="width: 300px; margin-top: 20px;">
+                <p class="mainPoints"> <span style="font-weight: bold; margin-left: 8px;">Email</span><span
+                        style="margin-left: 50px;"> {{email}}</span></p>
+            </mat-card>
+            <mat-card style=" margin-top: 20px;">
+                <p class="mainPoints"> <span style="font-weight: bold; margin-left: 8px;">Current number of projects
+                    </span>
+                    <span style="margin-left: 50px;"> {{nbrOfProjects}} </span>
+                </p>
+            </mat-card>
+            <mat-card style=" margin-top: 20px;">
+                <p class="mainPoints"> <span style="font-weight: bold; margin-left: 8px;">Current Role </span>
+                    <span style="margin-left: 50px;"> {{role}} </span>
+                </p>
+            </mat-card>
+            <mat-card style=" margin-top: 20px;">
+                <p class="mainPoints"> <span style="font-weight: bold; margin-left: 8px;">Account verification </span>
+                    <span style="margin-left: 50px;"> {{isAccountVerified}} </span>
+                </p>
+            </mat-card>
+            <div style="margin-top: 20px;">
+                <button (click)="logout()" mat-button color="warn">Log out</button>
+                <button mat-button color="primary">Modify account</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+</div>

@@ -2,64 +2,72 @@
     <app-nav></app-nav>
 </nav>
 <div>
-    <mat-card class="matCardSettings">
-        <mat-card-header>
-            <mat-card-title>DataBase Settings</mat-card-title>
-            <mat-card-subtitle>This is where you can modify the database that you are using in your projects
-            </mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-            <div class="choiceOfDB">
-                <p class="text">This is your current database setting<span style="color:#4934C3;"> {{selected}}</span>
-                </p>
-                <mat-form-field class="option">
-                    <mat-label>Select an option</mat-label>
-                    <mat-select [(value)]="selected">
-                        <mat-option value="PostgreSQL">PostgreSQL</mat-option>
-                        <mat-option value="MySQL">MySQL</mat-option>
-                        <mat-option value="Oracle">Oracle</mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-        </mat-card-content>
-    </mat-card>
-    <div style="display:flex;">
+    <form [formGroup]="form" #classForm="ngForm" (ngSubmit)="modifySettings(classForm)">
         <mat-card class="matCardSettings">
             <mat-card-header>
-                <mat-card-title>Application properties</mat-card-title>
-                <mat-card-subtitle>This is where you can modify your application.properties file</mat-card-subtitle>
+                <mat-card-title>DataBase Settings</mat-card-title>
+                <mat-card-subtitle>This is where you can modify the database that you are using in your projects
+                </mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
-                <div style="display: flex; flex-direction: column;">
-                    <mat-form-field>
-                        <mat-label>Application port</mat-label>
-                        <input matInput placeholder="your application port">
-                    </mat-form-field>
-                    <mat-form-field>
-                        <mat-label>Datasource Url</mat-label>
-                        <input matInput placeholder="your application port">
-                    </mat-form-field>
-                    <mat-form-field>
-                        <mat-label></mat-label>
-                        <input matInput placeholder="your application port">
+                <div class="choiceOfDB">
+                    <p class="text">This is your current database setting<span style="color:#4934C3;">
+                            {{selected}}</span>
+                    </p>
+                    <mat-form-field class="option">
+                        <mat-label>Select an option</mat-label>
+                        <mat-select formControlName="databaseType" [(value)]="selected">
+                            <mat-option value="PostgreSQL">PostgreSQL</mat-option>
+                            <mat-option value="MySQL">MySQL</mat-option>
+                            <mat-option value="Oracle">Oracle</mat-option>
+                        </mat-select>
                     </mat-form-field>
                 </div>
             </mat-card-content>
         </mat-card>
-        <mat-card class="matCardSettings">
-            <mat-card-header>
-                <mat-card-title>Application properties File</mat-card-title>
-                <mat-card-subtitle>This is where you can modify your application.properties file</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <div style="display: flex;">
-                    <p class="text">Application.properties FILE</p>
-                    <button class="btnSeeFile" color="primary" mat-raised-button>See File</button>
-                </div>
-            </mat-card-content>
-        </mat-card>
-    </div>
+        <div style="display:flex;">
+            <mat-card class="matCardSettings bottomLeftCard">
+                <mat-card-header>
+                    <mat-card-title>Application properties</mat-card-title>
+                    <mat-card-subtitle>This is where you can modify your application.properties file</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="inputsDiv">
+                        <mat-form-field class="input">
+                            <mat-label>Application port</mat-label>
+                            <input formControlName="applicationPort" matInput placeholder="your application port">
+                        </mat-form-field>
+                        <mat-form-field class="input">
+                            <mat-label>Datasource Url</mat-label>
+                            <input formControlName="databaseSourceUrl" matInput placeholder="Insert the url datasource of your application">
+                        </mat-form-field>
+                        <mat-form-field class="input">
+                            <mat-label>Datasource userName</mat-label>
+                            <input formControlName="databaseUserName" matInput placeholder="Insert the username of your application datasource">
+                        </mat-form-field>
+                        <mat-form-field class="input">
+                            <mat-label>Datasource password</mat-label>
+                            <input formControlName="databasePassword" matInput placeholder="Insert the password of your application datasource">
+                        </mat-form-field>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card class="matCardSettings">
+                <mat-card-header>
+                    <mat-card-title>Application properties File</mat-card-title>
+                    <mat-card-subtitle>This is where you can modify your application.properties file</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <div style="display: flex;">
+                        <p class="text">Application.properties FILE</p>
+                        <button type="button" class="btnSeeFile" color="primary" (click)="seeFile()" mat-button>See File</button>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
 
-
-
+        <div class="saveBtn">
+            <button color="primary" mat-raised-button type="submit">Save settings</button>
+        </div>
+    </form>
 </div>

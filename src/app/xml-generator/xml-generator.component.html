@@ -1,4 +1,5 @@
 <app-nav></app-nav>
+<div>
 <mat-card class="cardUpload">
   <form (ngSubmit)="uploadFile()" enctype="multipart/form-data">
     <div class="textUpload">
@@ -22,17 +23,17 @@
       <tbody>
         <tr *ngFor="let class of classes">
           <td>{{class.className}}</td>
-          <td><button (click)="openCodeDialog(class)" mat-icon-button color="accent">
-              <mat-icon>remove_red_eye</mat-icon>
-            </button>
+          <td>
             <button (click)="downloadClass(class)" mat-icon-button color="primary">
               <mat-icon>download</mat-icon>
             </button>
           </td>
-
         </tr>
+        <mat-spinner *ngIf="loadingUpload" style="width: 30px;"></mat-spinner>
 
       </tbody>
     </table>
   </mat-card-content>
+
 </mat-card>
+</div>

@@ -13,6 +13,7 @@ export class CodeDialogComponent implements OnInit{
   constructor(@Inject(MAT_DIALOG_DATA) public data:ClassFromDB,private classService:ClassService){}
   javaCode!:string
   ngOnInit(): void {
+    console.log(this.data)
     this.classService.getCodeOfClass(this.data).subscribe(
       response=>{
         console.log(response)

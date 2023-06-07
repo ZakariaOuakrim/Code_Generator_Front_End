@@ -34,18 +34,17 @@ export class ListDependenciesProjectComponent implements OnInit {
   addDependencyToProject(dependencyId:number){
     this.projectService.addDependencyToProject(this.projectId,dependencyId).subscribe(data=>{
       console.log(data);
+      this.ngOnInit();
+
     });
-    this.ngOnInit();
   }
   deleteDependencyFromProject(dependencyId:number){
     this.projectService.deleteDependencyFromProject(this.projectId,dependencyId).subscribe(
-      ()=>{
-      console.log("deleted success");
-    },error=>{
-      console.log(error)
-    }
+      data=>{
+        console.log(data);  
+        this.ngOnInit();
+      }
     );
-    this.ngOnInit();
   }
 
 

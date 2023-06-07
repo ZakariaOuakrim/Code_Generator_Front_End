@@ -1,10 +1,11 @@
 <mat-toolbar color="primary" class="fixed-navBar">
   <span>Code generator</span>
   <div class="spacer"></div>
-  <button routerLink="/user" routerLinkActive="active" mat-button>Home</button>
+  <button routerLink="/user" routerLinkActive="active" mat-button> <a routerLink="/admin"></a> Home</button>
   <button routerLink="/listOfProjects" routerLinkActive="active" mat-button> <a routerLink="/ListDependenciesProject"></a> <a routerLink="/project"></a>Projects</button>
   <button routerLink="/listOfClasses/0" routerLinkActive="active" mat-button><a routerLink="/classes"></a> <a routerLink="/listOfClasses"></a> Classes</button>
   <button *ngIf="isUserAdmin" routerLink="/listOfDependencies" routerLinkActive="active" mat-button>Dependencies</button>
+  <button *ngIf="isUserAdmin" routerLink="/users" routerLinkActive="active" mat-button>Users</button>
   <button routerLink="/uploadXmlFile" routerLinkActive="active" mat-button>Hibernate xml convertor</button>
   <button routerLink="/settings" routerLinkActive="active" mat-button>Settings</button>
   <button mat-mini-fab color="primary" [routerLink]="['/profile/',user]" routerLinkActive="active"  class="material-icons md-18">account_box</button>

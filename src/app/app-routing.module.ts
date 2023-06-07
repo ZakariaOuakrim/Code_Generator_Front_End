@@ -1,3 +1,4 @@
+import { UsersComponent } from './users/users.component';
 import { SettingsComponent } from './settings/settings.component';
 import { MyClassComponent } from './my-class/my-class.component';
 import { AdminComponent } from './admin/admin.component';
@@ -40,7 +41,8 @@ const routes: Routes = [
       {path:'ListDependenciesProject/:id',component:ListDependenciesProjectComponent , canActivate:[AuthGardService]},
       {path:'verifyAccount/:email',component:VerifyAccountComponent},
       {path:'settings',component:SettingsComponent , canActivate:[AuthGardService]},
-      {path:'uploadXmlFile',component:XmlGeneratorComponent , canActivate:[AuthGardService]}
+      {path:'uploadXmlFile',component:XmlGeneratorComponent , canActivate:[AuthGardService]},
+      {path:"users",component:UsersComponent , canActivate:[AuthGardService]}
     ];
 
 @NgModule({

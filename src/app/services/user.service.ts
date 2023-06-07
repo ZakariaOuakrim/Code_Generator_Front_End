@@ -60,6 +60,14 @@ export class UserService {
   public userForgotPassword(_email:string){
     return this.http.put(this.baseUrl+"/forgotPassword/"+_email,{headers:this.requestHeader});
   }
+  public getAllUsers(){
+    return this.http.get<User[]>(this.baseUrl+"/getAllUsers",{headers:this.requestHeader});
+
+  }
+  public deleteUser(email:string){
+    return this.http.delete(this.baseUrl+"/deleteUser/"+email,{headers:this.requestHeader});
+  }
+  
   
 
 

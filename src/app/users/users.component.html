@@ -1,0 +1,27 @@
+<nav><app-nav></app-nav></nav>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>UserName</th>
+        <th>Email</th>
+        <th>Enable</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.enabled}}</td>
+            <td>{{user.role}}</td>
+            <td>
+                <button (click)="deleteUser(user.email)" mat-icon-button color="warn">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+            </td>
+
+        </tr>
+    </tbody>
+
+</table>

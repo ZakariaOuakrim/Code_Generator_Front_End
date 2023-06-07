@@ -18,6 +18,8 @@ export class XmlGeneratorComponent  {
   selectedFiles!: File[];
   error!:string;
   classes!:ClassFromDB[]
+  loadingUpload:boolean=false;
+
   constructor(private http: HttpClient,private userAuthService:UserAuthService, private fileService: FileService,private dialog: MatDialog,private classService:ClassService) { }
 
 
@@ -26,24 +28,16 @@ export class XmlGeneratorComponent  {
   }
   
   uploadFile() {
-
+    this.loadingUpload=true
     this.fileService.uploadFile(this.selectedFiles,this.userAuthService.getEmail()??'').subscribe(
       (response:ClassFromDB[])=>{
         this.classes= response;
+        this.loadingUpload=false;
       }
     )
 
   }
-  openCodeDialog(_class:ClassFromDB){
-    const dialogRef = this.dialog.open(CodeDialogComponent,{
-      data:_class
-    }
-   );
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
   downloadClass(_class:ClassFromDB){
     this.classService.downloadClass(_class).subscribe((blob: Blob) => {
       saveAs(blob, _class.className + '.java');

@@ -19,4 +19,5 @@ export class Class{
     projectId!:number;
     mode!:string;
     isEmbeddedId!:boolean;
+    idOfPropertyId!:number;
 }

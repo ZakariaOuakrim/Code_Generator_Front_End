@@ -34,14 +34,22 @@ export class ListProjectsComponent implements OnInit{
       )
       return;
     }
-    this.projectService.getAllProjects(this.userAuthService.getEmail() || '').subscribe(
-      (response:Project[])=>{
-        this.projects=response;
-        if(this.projects.length===0){
-          this.doesListHaveProjects=false;
+    try{
+      this.projectService.getAllProjects(this.userAuthService.getEmail() || '').subscribe(
+        (response:Project[])=>{
+          this.projects=response;
+          if(this.projects.length===0){
+            this.doesListHaveProjects=false;
+          }
+        },
+        (error)=>{
+          console.log(error)
         }
-      }
-    )
+      )
+    }catch(erro){
+      this.route.navigate(['login']);
+    }
+ 
 
   }
   public downloadProject(project:Project){
@@ -65,11 +73,15 @@ export class ListProjectsComponent implements OnInit{
   }
 
   public deleteProject(projectId:number){
+    this.loadingDownload=true;
+
     this.projectService.deleteProject(projectId).subscribe(
       (response:any)=>{
         this.ngOnInit();
       }
     );
+    this.loadingDownload=false;
+
   }
   openConfirmationToDelete(projectId: number) {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {

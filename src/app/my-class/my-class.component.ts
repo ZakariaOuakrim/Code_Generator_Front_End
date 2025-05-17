@@ -209,7 +209,8 @@ export class MyClassComponent implements OnInit {
     //sending the class object to the backend
     if(this.mode=='modify'){
       this.class.mode="modify";
-      
+      this.router.navigate(['/listOfClasses', this.class.projectId]);
+      return;
     }
     this.classService.createNewClass(this.class).subscribe(
       (response: any) => {

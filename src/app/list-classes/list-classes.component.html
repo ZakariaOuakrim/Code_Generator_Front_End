@@ -15,10 +15,14 @@
                         <mat-card>
                             <mat-card-content class="class_name">{{class.className}}
                                 <div class="buttons">
-                                    <button *ngIf="class.classType!='Service_GEN' && class.classType!='Controller_GEN' && class.classType!='JPA_INTERFACE' " [routerLink]="['/classes/modify/'+projectId+'/'+class.packageName+'/'+class.id]" mat-stroked-button color="accent"> Modify</button>
-                                    <button (click)="openConfirmationToDelete(class.id)" mat-stroked-button color="warn">Delete</button>
-                                    <button  (click)="downloadClass(class)" mat-stroked-button
-                                        color="primary"> Download</button>
+                                    <button
+                                        *ngIf="class.classType!='Service_GEN' && class.classType!='Controller_GEN' && class.classType!='JPA_INTERFACE' "
+                                        [routerLink]="['/classes/modify/'+projectId+'/'+class.packageName+'/'+class.id]"
+                                        mat-stroked-button color="accent"> Modify</button>
+                                    <button (click)="openConfirmationToDelete(class.id)" mat-stroked-button
+                                        color="warn">Delete</button>
+                                    <button (click)="downloadClass(class)" mat-stroked-button color="primary">
+                                        Download</button>
                                 </div>
                             </mat-card-content>
                         </mat-card>
@@ -26,12 +30,14 @@
                 </div>
             </div>
             <div style="text-align: center;">
-                <button *ngIf="!isProjectIdZero" [routerLink]="['/classes/create/'+projectId+'/'+package+'/ ']" type="button" mat-button color="primary">Add a class inside this package</button>
+                <button *ngIf="!isProjectIdZero" [routerLink]="['/classes/create/'+projectId+'/'+package+'/ ']"
+                    type="button" mat-button color="primary">Add a class inside this package</button>
             </div>
         </mat-expansion-panel>
     </div>
     <div style="text-align: center; margin-top:10px;">
-        <button mat-raised-button *ngIf="!isProjectIdZero" color="primary" [routerLink]="['/classes/create/'+projectId+'/'+groupId+'/ ']" type="button">create a new class within a new
+        <button mat-raised-button *ngIf="!isProjectIdZero" color="primary"
+            [routerLink]="['/classes/create/'+projectId+'/'+groupId+'/ ']" type="button">create a new class within a new
             package</button>
     </div>
 </div>

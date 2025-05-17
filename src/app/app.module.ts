@@ -55,6 +55,7 @@ import { CodeDialogComponent } from './code-dialog/code-dialog.component';
 import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
 import { ModifyProjectComponent } from './modify-project/modify-project.component';
 import { UsersComponent } from './users/users.component';
+import { PaginationComponent } from './pagination-component/pagination-component.component';
 
 
 @NgModule({
@@ -82,6 +83,7 @@ import { UsersComponent } from './users/users.component';
     PasswordRecoveryComponent,
     ModifyProjectComponent,
     UsersComponent,
+    PaginationComponent
     
     
     
@@ -120,7 +122,7 @@ import { UsersComponent } from './users/users.component';
     MatSnackBarModule,
     Ng2SearchPipeModule,
     MatProgressSpinnerModule,
-    MatStepperModule
+    MatStepperModule,
 
 
     

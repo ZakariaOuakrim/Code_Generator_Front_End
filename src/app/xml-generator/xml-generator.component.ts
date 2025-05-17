@@ -7,6 +7,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FileService } from '../services/file-service.service';
 import { MatDialog } from '@angular/material/dialog';
 import * as saveAs from 'file-saver';
+import { resolve } from 'chart.js/dist/helpers/helpers.options';
 
 @Component({
   selector: 'app-xml-generator',
@@ -21,7 +22,10 @@ export class XmlGeneratorComponent  {
   loadingUpload:boolean=false;
 
   constructor(private http: HttpClient,private userAuthService:UserAuthService, private fileService: FileService,private dialog: MatDialog,private classService:ClassService) { }
-
+  
+  delay(ms:number){
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
 
   onFileSelected(event: any) {
     this.selectedFiles = event.target.files;
@@ -29,6 +33,7 @@ export class XmlGeneratorComponent  {
   
   uploadFile() {
     this.loadingUpload=true
+    console.log("this.selectedFiles")
     this.fileService.uploadFile(this.selectedFiles,this.userAuthService.getEmail()??'').subscribe(
       (response:ClassFromDB[])=>{
         this.classes= response;

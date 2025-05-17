@@ -9,7 +9,7 @@ import { User } from '../Entities/userDetail';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class UserService { 
   private baseUrl='http://localhost:8080/auth';
   requestHeader = new HttpHeaders({"No-Auth":"True"})
   constructor(private http:HttpClient,private router:Router) {}

@@ -1,3 +1,4 @@
+import { PaginationComponent } from './pagination-component/pagination-component.component';
 import { UsersComponent } from './users/users.component';
 import { SettingsComponent } from './settings/settings.component';
 import { MyClassComponent } from './my-class/my-class.component';
@@ -22,28 +23,30 @@ import { AuthGardService } from './services/auth-gard.service';
 
 
 const routes: Routes = [
-      {path:'',component:LoginComponent},
-      {path: 'login',component: LoginComponent },
-      {path:'signup',component: SignUpComponent},
-      {path:'signUp',component:SignUpComponent },
-      {path:'profile/:adminId',component: ProfileComponent ,canActivate:[AuthGardService] },
-      {path: 'home',component: AppComponent, canActivate:[AuthGardService] },
-      {path:'navPage',component:NavComponent , canActivate:[AuthGardService]},
-      {path:'user',component:UserComponent ,canActivate:[AuthGardService]},
-      {path:'admin',component:AdminComponent , canActivate:[AuthGardService]},
-      {path:'createClass',component:MyClassComponent , canActivate:[AuthGardService]},
-      {path:'project',component:ProjectComponent , canActivate:[AuthGardService]},
-      {path:'classes/:mode/:id/:package/:classModifyId',component:MyClassComponent , canActivate:[AuthGardService]},
-      {path:'listOfClasses/:id',component:ListClassesComponent , canActivate:[AuthGardService]},
-      {path:'listOfProjects',component:ListProjectsComponent ,canActivate:[AuthGardService]},
-      {path:'modifyClass/:projectId/:id',component:ModifyClassComponent , canActivate:[AuthGardService]},
-      {path:'listOfDependencies',component:DependencyListComponent , canActivate:[AuthGardService]},
-      {path:'ListDependenciesProject/:id',component:ListDependenciesProjectComponent , canActivate:[AuthGardService]},
-      {path:'verifyAccount/:email',component:VerifyAccountComponent},
-      {path:'settings',component:SettingsComponent , canActivate:[AuthGardService]},
-      {path:'uploadXmlFile',component:XmlGeneratorComponent , canActivate:[AuthGardService]},
-      {path:"users",component:UsersComponent , canActivate:[AuthGardService]}
-    ];
+  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignUpComponent },
+  { path: 'signUp', component: SignUpComponent },
+  { path: 'profile/:adminId', component: ProfileComponent, canActivate: [AuthGardService] },
+  { path: 'home', component: AppComponent, canActivate: [AuthGardService] },
+  { path: 'navPage', component: NavComponent, canActivate: [AuthGardService] },
+  { path: 'user', component: UserComponent, canActivate: [AuthGardService] },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGardService] },
+  { path: 'createClass', component: MyClassComponent, canActivate: [AuthGardService] },
+  { path: 'project', component: ProjectComponent, canActivate: [AuthGardService] },
+  { path: 'classes/:mode/:id/:package/:classModifyId', component: MyClassComponent, canActivate: [AuthGardService] },
+  { path: 'listOfClasses/:id', component: ListClassesComponent, canActivate: [AuthGardService] },
+  { path: 'listOfProjects', component: ListProjectsComponent, canActivate: [AuthGardService] },
+  { path: 'modifyClass/:projectId/:id', component: ModifyClassComponent, canActivate: [AuthGardService] },
+  { path: 'listOfDependencies', component: DependencyListComponent, canActivate: [AuthGardService] },
+  { path: 'ListDependenciesProject/:id', component: ListDependenciesProjectComponent, canActivate: [AuthGardService] },
+  { path: 'verifyAccount/:email', component: VerifyAccountComponent },
+  { path: 'settings', component: SettingsComponent, canActivate: [AuthGardService] },
+  { path: 'uploadXmlFile', component: XmlGeneratorComponent, canActivate: [AuthGardService] },
+  { path: "users", component: UsersComponent, canActivate: [AuthGardService] },
+  { path: "paginator", component: PaginationComponent, canActivate: [AuthGardService] },
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
